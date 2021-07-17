@@ -25,6 +25,8 @@ Then multiply by Summation S and sum to get results. Tested with actual for loop
 #include <string>
 #include<deque>
 #include <chrono>
+#include<vector>
+#include<cstring>
 
 using namespace std;
 
@@ -89,19 +91,43 @@ int BracketCalc(int i){
   int s = Calc(v, i);
   return s;  
 }
+
+int Catalan(int n){
+  if ( n == 1 ) return 1;
+  if ( n == 2 ) return 2;
+  
+  vector<int> v(n+1, 0);
+  v[0] = 1; 
+  v[1] = 1;
+  for ( int i = 2; i <= n; i++){
+    int inside = i - 1;
+    int outside = 0;
+    while ( inside >= 0){
+      v[i] += v[inside] * v[outside];
+      inside--; outside++;
+    }
+  }
+  return v[n];
+}
+
 int main(void) { 
   // keep this function call here
   int i;
   cin >> i;
   auto start = chrono::steady_clock::now();
-  cout << BracketCombinations(i);
+//  cout << BracketCombinations(i);
   auto end = chrono::steady_clock::now();
-  cout << "   : Time in microseconds: " << chrono::duration_cast<chrono::microseconds>(end - start).count() << " µs" << endl;
+/*  cout << "   : Time in microseconds: " << chrono::duration_cast<chrono::microseconds>(end - start).count() << " µs" << endl;
   
   cout << endl << "=====================" << endl;
-
+*/
   start = chrono::steady_clock::now();
   cout << BracketCalc(i);
+  end = chrono::steady_clock::now();
+  cout << "   : Time in microseconds: " << chrono::duration_cast<chrono::microseconds>(end - start).count() << " µs" << endl;
+  
+  start = chrono::steady_clock::now();
+  cout << Catalan(i);
   end = chrono::steady_clock::now();
   cout << "   : Time in microseconds: " << chrono::duration_cast<chrono::microseconds>(end - start).count() << " µs" << endl;
   
