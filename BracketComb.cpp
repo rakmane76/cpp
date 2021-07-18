@@ -11,16 +11,21 @@ It goes something like ..
 for N = 1 return 1
 for N =2 return 3 
 else for N > 2  = 1*S(N) + A*S(N-1) + B*S(N-2) + ... + X*S(3)
-Here S(N) is summation N , N-1 ,... 2 . -> N + N-1 + N-2 + .. + 3 + 2
+Here S(N) is summation N , N-1 ,... 2 . -> N + N-1 + N-2 + .. + 3 + 2 = (N(N+1)/2) - 1
 A, B, C ,X are factors that need to be multiplied to summation N. 
-Note Factors A will always be 1, and last factor X will always be equal to its previous factor W. X = W . 
+Note Factors A will always be 1, and last factor X will always be equal to its previous factor W. X = W = X-1. 
 To calculate factors start with N = 3  and it will have only 1 factor A = 1. 
 Increment to next term 4, which will have 2 factors A, B . Here A = 1 , and last factor B = A , so B = 1 . 
 Increment next term 5 , it will have 3 factors A =1, B, C=B . To calculate B, B = 4(A)+4(B) .. (Sum of factors of previous term = 4 until N-1)
 Increment next term 6, it will have 4 factors A=1, B, C, D = C. B = (5(A)+5(B)) , C = (5(A) + 5(B) + 5(C))
 Keep doing till you get all terms for factors. 
 Then multiply by Summation S and sum to get results. Tested with actual for loop code .. it is matching. 
-*/
+
+Also found another interesting observation.
+above factors A,B,C,D from combination of coefficients starting with N=3
+(1), (1,1), (1,2,2), (1,3,5,5), (1,4,9,14,14), (1,5,14,28,42,42) ...... please explanation above how it is calculated. 
+This takes more time to compute than Catalan function written below. But again something different and interesting observation.
+*/ 
 #include <iostream>
 #include <string>
 #include<deque>
