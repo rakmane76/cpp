@@ -40,7 +40,7 @@ string LargestSubsetPalindromes(string &s) {
     string result = {};
     for ( int i = 0; i < size; i++)
     for ( int j = 0; j < size; j++)
-        if ((di[i][j] == 1) && result.size() < j-i+1) result = s.substr(i, j-1+1) ;
+        if ((di[i][j] == 1) && result.size() < j-i+1) result = s.substr(i, j-i+1) ;
     
     return result;
 }
