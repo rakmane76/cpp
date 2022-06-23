@@ -1,6 +1,7 @@
 /* 
 * Problems related to Palindrome using Dynamic Programming.. 
-*
+* For explanation check : https://www.youtube.com/watch?v=XmSOWnL6T_I&t=69s
+* https://www.youtube.com/watch?v=WpYHNHofwjc&t=43s
 */
 
 #include<iostream>
