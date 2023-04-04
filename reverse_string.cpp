@@ -9,7 +9,7 @@ using namespace std;
 string reverse_string(string &s){
     string res;
     stack<string> st;
-    cout << s <<": ended here" << endl;
+    cout <<"Found string :" << s << endl;
     cout <<"Length :" << s.length() << endl;
     auto n = s.begin();
     for(auto it = s.begin(); it != s.end() ; it = n){
